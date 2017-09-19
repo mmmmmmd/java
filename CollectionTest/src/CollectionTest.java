@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
+import java.util.function.Predicate;
 
 public class CollectionTest {
     public static void main(String[] args){
@@ -11,6 +12,22 @@ public class CollectionTest {
         booksPrint(books);
         booksLambdaPrint(books);
         booksForEachPrint(books);
+        booksPredicatePrint(books);
+    }
+
+    //使用java8新增的Predicate遍历集合
+    private static void booksPredicatePrint(Collection books) {
+        System.out.println(calAll(books,ele->((String)ele).contains("java")));
+    }
+
+    private static int calAll(Collection books, Predicate p) {
+        int total=0;
+        for (Object obj:books){
+            if(p.test(obj)){
+                total++;
+            }
+        }
+        return total;
     }
 
     private static void booksForEachPrint(Collection books) {
