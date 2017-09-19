@@ -10,9 +10,22 @@ public class CollectionTest {
         booksInit(books);
         booksPrint(books);
         booksLambdaPrint(books);
+        booksForEachPrint(books);
     }
 
+    private static void booksForEachPrint(Collection books) {
+        System.out.println("用forEach循环遍历集合");
+        for(Object obj:books){
+            String book = (String)obj;
+            System.out.println(book);
+        }
+    }
+
+    //使用Lambda表达式来遍历集合
     private static void booksLambdaPrint(Collection books) {
+        System.out.println("使用Lambda表达式来遍历集合");
+        Iterator iterator = books.iterator();
+        iterator.forEachRemaining(obj->System.out.println((obj)));
     }
 
     //集合遍历方法
