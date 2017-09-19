@@ -1,16 +1,11 @@
-public class Button implements OnClickListener {
+public class Button extends View implements OnClickListener {
+
 
     public void setOnClickListener(View view){
-        System.out.println(view.message);
+        System.out.println("setOnClickListener");
     }
 
-    public static void main(String[] args){
-        Button button = new Button("This is Button...");
-        View view = new View("This is message");
-        button.setOnClickListener(view);
-    }
-
-    private Button (String message){
-        System.out.println(message);
+    public  Button (String message){
+        super(message);
     }
 }

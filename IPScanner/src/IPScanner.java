@@ -9,11 +9,15 @@ public class IPScanner {
 
     private static InetAddress host;
     private static String address;
+    private static String subnetmask;
+    private static int deviceNum=0;
 
     public static void main(String [] args)throws IOException{
         Scanner sc = new Scanner(System.in);
         System.out.println("请输入ip地址：");
         address = sc.nextLine();
+        System.out.println("请输入子网掩码：");
+        subnetmask = sc.nextLine();
         if(isAddressAvailable(address))
             System.out.println("网络连通..目标主机开机");
         else
@@ -24,6 +28,8 @@ public class IPScanner {
     private static boolean isAddressAvailable(String address) throws IOException {
         try{
             host = InetAddress.getByName(address);
+            String hostNum = host.getHostAddress();
+            System.out.println("局域网的网络号是:"+hostNum);
         }catch(UnknownHostException e){
             e.printStackTrace();
         }
