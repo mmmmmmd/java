@@ -1,4 +1,5 @@
 
+import java.util.Date;
 import java.util.TreeSet;
 
 
@@ -13,6 +14,10 @@ import java.util.TreeSet;
    6.SortSet SubSet(Object fromElement,Object toElement):返回此Set的子集合，集合左闭右开
    7.SortSet headSet(Object toElement):返回小于toElement的此Set集合的子集合
    8.SortSet tailSet(Object fromElement):返回大于或等于fromElement的此Set集合的子集合
+   9.如果希望TreeSet正常工作那么应该向集合中添加同种类型元素
+   10.TreeSet中轻易不要改变元素变量的成员变量
+      如果修改那么将无法进行删除操作并且也无法删除和其值相等的元素，也不会重新对元素进行排序
+      但是可以删除没有被修改且再集合内从没有重复值的元素
  */
 
 public class TreeSetTest {
