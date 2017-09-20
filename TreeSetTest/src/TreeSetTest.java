@@ -1,5 +1,4 @@
 
-import java.util.Date;
 import java.util.TreeSet;
 
 
@@ -18,6 +17,8 @@ import java.util.TreeSet;
    10.TreeSet中轻易不要改变元素变量的成员变量
       如果修改那么将无法进行删除操作并且也无法删除和其值相等的元素，也不会重新对元素进行排序
       但是可以删除没有被修改且再集合内从没有重复值的元素
+   11.定制排序：自然排序是根据数据的大小按升序排列
+                定制排序是根据自定义的数据类型的某一属性进行排序
  */
 
 public class TreeSetTest {
@@ -40,5 +41,22 @@ public class TreeSetTest {
         System.out.println(num.tailSet(3));
         //输出大于等于0小于5的子集
         System.out.println(num.subSet(0,5));
+
+        TreeSet student = new TreeSet(((o1, o2) -> {
+            Student student1 = (Student)o1;
+            Student student2 = (Student)o2;
+            return student1.age>student2.age?-1:student1.age<student2.age?1:0;
+        }));
+        student.add(new Student(15));
+        student.add(new Student(16));
+        student.add(new Student(17));
+        student.add(new Student(18));
+        customOrder(student);
     }
+
+    //定制排序的方法
+    public static void customOrder(TreeSet student){
+        System.out.println(student);
+    }
+
 }
