@@ -39,5 +39,13 @@ public class ListTest {
         //将集合novel内的元素插入集合books的1索引处
         books.addAll(1,novel);
         System.out.println("添加后的集合元素为："+books);
+
+        //将集合的最后一个元素替换成Android开发艺术探索
+        books.set(books.size()-1,"Android开发艺术探索");
+
+        System.out.println("修改后的集合元素为："+books);
+
+        //截取集合内从2到5的子集合(左开右闭)
+        System.out.println("所截取的子集合为"+books.subList(2,5));
     }
 }
