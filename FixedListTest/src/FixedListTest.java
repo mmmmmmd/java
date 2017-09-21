@@ -1,3 +1,5 @@
+import java.util.Arrays;
+import java.util.List;
 
 /*
    Arrays工具类里提供了asList(Object... a)方法，该方法可以把一个数组或指定个数的对象转换成一个List集合
@@ -7,6 +9,10 @@
  */
 public class FixedListTest {
     public static void main(String[] args){
-        
+        List  fixedList = Arrays.asList("白夜行","嫌疑人X的献身","解忧杂货店");
+        //获取fixedList的实现类
+        System.out.println(fixedList.getClass());
+        //使用方法遍历集合元素
+        fixedList.forEach(System.out::println);
     }
 }
