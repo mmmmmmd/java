@@ -47,5 +47,16 @@ public class ListTest {
 
         //截取集合内从2到5的子集合(左开右闭)
         System.out.println("所截取的子集合为"+books.subList(2,5));
+
+        //使用Comparator的Lambda表达式对集合进行重新排序
+        books.sort((o1,o2)->((String)o1).length()-((String)o2).length());
+        System.out.println("重新排序后的集合元素顺序为:"+books);
+
+        new Thread(()->System.out.println("Hello world"));
+
+        //使用目标为UnartyOperator的Lambda表达式来替换集合中的所有元素
+        books.replaceAll(ele->((String)ele).length());
+
+        System.out.println("替换后的集合元素为:"+books);
     }
 }
